@@ -22,11 +22,11 @@
 
     <canvas id="game-canvas" width="1000" height="500"></canvas>
     <script>
-      var canvasEl = document.getElementById('game-canvas');
-      var ctx = canvasEl.getContext('2d');
+      var canvas = document.getElementById('game-canvas');
+      var ctx = canvas.getContext('2d');
 
       var g = new Breakout.Game(ctx);
-      var gv = new Breakout.GameView(g, ctx);
+      var gv = new Breakout.GameView(g, ctx, canvas);
       gv.start();
     </script>
   </body>
