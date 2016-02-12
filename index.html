@@ -7,13 +7,50 @@
   </head>
   <body>
     <style>
+      h1, p, a {
+        font-family: 'VT323';
+        margin: 0;
+        padding: 0;
+      }
+
       #game-canvas {
         margin: auto;
         display: block;
+        border: 1px solid none;
       }
 
       #game-canvas:hover {
         cursor: crosshair;
+      }
+
+      #headline {
+        color: rgb(0,0,0);
+        display: block;
+        text-align: center;
+        font-size: 72px;
+        padding: 0 0 10px 0;
+        border-bottom: 10px solid #aaa;
+      }
+
+      #game-container {
+        box-sizing: content-box;
+        border: 20px solid #aaa;
+        background: #000;
+        display: block;
+        margin: 20px auto 0 auto;
+        width: 1000px;
+      }
+
+      #footer {
+        display: block;
+        text-align: right;
+        margin-right: 0;
+        margin: 10px 0 0 0  ;
+      }
+
+      body {
+        width: 1040px;
+        margin: auto;
       }
 
     </style>
@@ -27,8 +64,32 @@
     <script src="./lib/particles.js"></script>
 
     <script src="./vendor/keymaster.js"></script>
-    <canvas id="game-canvas" width="1000" height="500"></canvas>
+    <div id="game-container">
+      <h1 id="headline">Breakout!</h1>
+      <canvas id="game-canvas" width="1000" height="500"></canvas>
+    </div>
+    <p id="footer">Created by <a href="https://www.linkedin.com/in/zacharymoroni">Zachary Moroni</a></p>
     <script>
+
+        var textColor = 0;
+        var direction = 1;
+        var headline = document.getElementById("headline");
+        window.setInterval(function () {
+          headline.style.color = "rgb(0," + textColor + ",0)";
+
+          if (direction === 1) {
+            textColor+=15;
+            if (textColor === 195) {
+              direction = -1;
+            }
+          } else if (direction === -1) {
+            textColor-=15;
+            if (textColor === 0) {
+              direction = 1;
+            }
+          }
+        }, 20);
+
       var canvas = document.getElementById('game-canvas');
       var ctx = canvas.getContext('2d');
 
