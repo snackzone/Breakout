@@ -9,7 +9,7 @@ Inspired by the Atari classic
 
 ![alt tag](https://raw.githubusercontent.com/snackzone/Breakout/master/screens/screenshot1.png)
 
-##Rules
+##How to Play
 * Move the paddle left and right with the arrow keys or with the mouse
 * Click to release the ball
 * Earn points for destroying bricks
